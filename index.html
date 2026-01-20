@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Classic Fluffy American Pancakes – Perfect Breakfast Recipe</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #c8102e;
+      --primary-dark: #a00d24;
+      --text: #1f1f1f;
+      --bg: #fdfaf5;
+      --surface: #ffffff;
+      --radius: 16px;
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    #main-content {
+      min-height: 100vh;
+      transition: filter 0.4s ease;
+    }
+
+    #main-content.blurred {
+      filter: blur(10px) brightness(0.75);
+      pointer-events: none;
+    }
+
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+      background: var(--surface);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .hero {
+      height: 380px;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.6)),
+                  url('https://www.simplyrecipes.com/thmb/Tcs224KGP0wSicovekrJz8UFTYk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Golden-Diner-Pancakes-LEAD-2-e1345580447b4383a2400b3470e1af65.jpg') center 55% / cover;
+      color: white;
+      display: flex;
+      align-items: flex-end;
+      padding: 2.5rem 2rem 2.2rem;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.1rem;
+      font-weight: 700;
+      text-shadow: 0 3px 12px rgba(0,0,0,0.6);
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.4rem 2rem;
+      font-size: 1.05rem;
+      opacity: 0.95;
+    }
+
+    main { padding: 2.5rem 2.5rem 3rem; }
+    h2 { font-family: 'Playfair Display', serif; color: var(--primary); font-size: 2.1rem; margin: 2.2rem 0 1.2rem; }
+
+    footer {
+      background: #f8f5f2;
+      text-align: center;
+      padding: 2rem;
+      color: #555;
+      font-size: 0.95rem;
+    }
+
+    #cookie-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      z-index: 9998;
+      display: none;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      pointer-events: auto;
+    }
+
+    #cookie-overlay.show {
+      display: block;
+      opacity: 1;
+    }
+
+    #cookie-consent {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90%;
+      max-width: 460px;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 20px 70px rgba(0,0,0,0.45);
+      padding: 2.5rem 2.2rem;
+      z-index: 9999;
+      text-align: center;
+      display: none;
+      filter: none !important;
+      -webkit-filter: none !important;
+      backdrop-filter: none;
+    }
+
+    #cookie-consent.show {
+      display: block;
+    }
+
+    #cookie-consent h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1.2rem;
+      color: #111;
+    }
+
+    #cookie-consent p {
+      margin-bottom: 1.8rem;
+      color: #444;
+      font-size: 1.02rem;
+      line-height: 1.55;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 1.4rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 0.9rem 2rem;
+      border-radius: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      min-width: 130px;
+    }
+
+    .btn-accept {
+      background: var(--primary);
+      color: white;
+    }
+    .btn-accept:hover { background: var(--primary-dark); }
+
+    .btn-decline {
+      background: #e5e5e5;
+      color: #333;
+    }
+    .btn-decline:hover { background: #d5d5d5; }
+
+    @media (max-width: 480px) {
+      #cookie-consent { padding: 2rem 1.6rem; }
+      .hero { height: 320px; }
+      .hero h1 { font-size: 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="main-content">
+  <div class="container">
+    <div class="hero">
+      <div>
+        <h1>Classic Fluffy American Pancakes</h1>
+        <div class="meta">
+          <span>Prep: 10 minutes</span>
+          <span>Cook: 15 minutes</span>
+          <span>Total: 25 minutes</span>
+          <span>Serves: 8 pancakes</span>
+        </div>
+      </div>
+    </div>
+
+    <main>
+      <h2>Ingredients</h2>
+      <ul style="display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:1.2rem 2rem; margin:1.6rem 0; list-style:none;">
+        <li>1½ cups (190 g) all-purpose flour</li>
+        <li>3½ tsp baking powder</li>
+        <li>¼ tsp baking soda</li>
+        <li>½ tsp fine sea salt</li>
+        <li>2 Tbsp granulated sugar</li>
+        <li>1¼ cups (300 ml) whole milk — room temperature</li>
+        <li>1 large egg — room temperature</li>
+        <li>3 Tbsp unsalted butter — melted & cooled + extra for cooking</li>
+        <li>1½ tsp pure vanilla extract</li>
+      </ul>
+
+      <h2>Method</h2>
+      <ol style="counter-reset:step; list-style:none; margin:1.6rem 0;">
+        <li style="position:relative; padding-left:3.4rem; margin-bottom:1rem;">Whisk dry ingredients together.</li>
+        <li style="position:relative; padding-left:3.4rem; margin-bottom:1rem;">Add wet ingredients → stir gently (lumps OK).</li>
+        <li style="position:relative; padding-left:3.4rem; margin-bottom:1rem;">Rest batter 8–12 min.</li>
+        <li style="position:relative; padding-left:3.4rem; margin-bottom:1rem;">Cook on medium heat until bubbles form.</li>
+        <li style="position:relative; padding-left:3.4rem;">Flip and finish cooking.</li>
+      </ol>
+
+      <div style="background:#fff8f6; border-left:5px solid var(--primary); padding:1.6rem; margin:2.4rem 0; border-radius:0 8px 8px 0; font-style:italic;">
+        <strong>Pro tips:</strong><br>• Don't press pancakes after flipping<br>• Reduce milk slightly for thicker ones
+      </div>
+    </main>
+
+    <footer>
+      Enjoy your pancakes! 🥞
+    </footer>
+  </div>
+</div>
+
+<div id="cookie-overlay"></div>
+
+<div id="cookie-consent">
+  <h3>We use cookies</h3>
+  <p>
+    This site uses cookies to enhance your experience.<br>
+    By continuing, you agree to our use of cookies.
+  </p>
+
+  <div class="buttons">
+    <button class="btn btn-accept" id="btn-accept">Accept</button>
+    <button class="btn btn-decline" id="btn-decline">Decline</button>
+  </div>
+</div>
+
+<script>
+  const main      = document.getElementById('main-content');
+  const overlay   = document.getElementById('cookie-overlay');
+  const dialog    = document.getElementById('cookie-consent');
+  const acceptBtn = document.getElementById('btn-accept');
+  const declineBtn = document.getElementById('btn-decline');
+  const REDIRECT  = "https://www.pankcakerecipesideas.com/";
+
+  function showConsent() {
+    overlay.classList.add('show');
+    dialog.classList.add('show');
+    main.classList.add('blurred');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function redirect() {
+    window.location.href = REDIRECT;
+  }
+
+  if (!localStorage.getItem('cookie_consent_given')) {
+    showConsent();
+  }
+
+  overlay.onclick = (e) => {
+    if (e.target === overlay) redirect();
+  };
+
+  acceptBtn.onclick = () => {
+    localStorage.setItem('cookie_consent_given', 'accepted');
+    redirect();
+  };
+
+  declineBtn.onclick = () => {
+    localStorage.setItem('cookie_consent_given', 'declined');
+    redirect();
+  };
+</script>
+
+</body>
+</html>
